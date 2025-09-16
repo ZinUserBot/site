@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سایت فوق‌حرفه‌ای پارالاکس</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #0f2027;
+    color: white;
+}
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s;
+    z-index: 1000;
+}
+nav.scrolled {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+}
+nav h2 {
+    font-size: 1.5em;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #ffdd00;
+}
+
+/* بخش ویدیو پارالاکس */
+header {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+header video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+header h1 {
+    font-size: 3em;
+    animation: fadeInDown 2s ease-out;
+}
+header p {
+    font-size: 1.2em;
+    animation: fadeInUp 2s ease-out;
+}
+@keyframes fadeInDown {
+    0%{opacity:0;transform:translateY(-50px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeInUp {
+    0%{opacity:0;transform:translateY(50px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+/* بخش‌ها */
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+section p {
+    max-width: 800px;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1.2s;
+}
+section.show h2, section.show p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* پارالاکس پس‌زمینه برای بخش‌ها */
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* اسلایدر */
+.slider {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slides img {
+    width: 100%;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* فرم تماس */
+form {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+input, textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+button.btn {
+    background: #1c1c1c;
+    color: white;
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px #0a0a0a, -5px -5px 15px #292929;
+    transition: 0.3s;
+}
+button.btn:hover {
+    transform: scale(1.05);
+}
+
+/* پارالاکس موس */
+.parallax-layer {
+    transition: transform 0.1s;
+    will-change: transform;
+}
+</style>
+</head>
+<body>
+<nav>
+    <h2>UltraSite</h2>
+    <ul>
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#services">خدمات</a></li>
+        <li><a href="#gallery">گالری</a></li>
+        <li><a href="#contact">تماس</a></li>
+    </ul>
+</nav>
+
+<header id="home">
+    <video autoplay muted loop class="parallax-layer" data-speed="2">
+        <source src="https://player.vimeo.com/external/310114263.sd.mp4?s=056ee927b3a03c99a7b69f5ac399962d526d5d78&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <div>
+        <h1 class="parallax-layer" data-speed="5">به دنیای لوکس خوش اومدی ✨</h1>
+        <p class="parallax-layer" data-speed="3">اسکرول کن و جادو رو ببین!</p>
+    </div>
+</header>
+
+<section id="services" class="parallax" style="background-image: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <h2>خدمات ما</h2>
+    <p>طراحی وب، سئو، برندینگ و راهکارهای دیجیتال.</p>
+</section>
+
+<section id="gallery">
+    <h2>گالری</h2>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://images.pexels.com/photos/3568505/pexels-photo-3568505.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="عکس ۱">
+            <img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="عکس ۲">
+            <img src="https://images.pexels.com/photos/1005644/pexels-photo-1005644.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="عکس ۳">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
+
+<section id="contact" class="parallax" style="background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <h2>تماس با ما</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="نام شما" required>
+        <input type="email" id="email" placeholder="ایمیل شما" required>
+        <textarea id="message" placeholder="پیام شما" rows="5" required></textarea>
+        <button type="submit" class="btn">ارسال</button>
+    </form>
+</section>
+
+<script>
+// تغییر رنگ منو هنگام اسکرول
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// نمایش انیمیشنی بخش‌ها
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+    const triggerBottom = window.innerHeight / 1.2;
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < triggerBottom) sec.classList.add("show");
+    });
+});
+
+// اسلایدر
+let index = 0;
+const slides = document.querySelector('.slides');
+const total = document.querySelectorAll('.slides img').length;
+
+document.querySelector('.next').addEventListener('click', () => {
+    index = (index + 1) % total;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+});
+document.querySelector('.prev').addEventListener('click', () => {
+    index = (index - 1 + total) % total;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+});
+
+// ولیدیشن فرم
+document.querySelector("#contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.querySelector("#name").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const msg = document.querySelector("#message").value.trim();
+
+    if(!name || !email || !msg) {
+        alert("لطفا همه فیلدها را پر کنید.");
+        return;
+    }
+    alert("پیام شما با موفقیت ارسال شد 🚀");
+});
+
+// افکت پارالاکس موس
+document.addEventListener("mousemove", parallax);
+function parallax(e) {
+    document.querySelectorAll(".parallax-layer").forEach(layer => {
+        const speed = layer.getAttribute("data-speed");
+        const x = (window.innerWidth - e.pageX*speed)/100;
+        const y = (window.innerHeight - e.pageY*speed)/100;
+        layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+}
+</script>
+</body>
+</html>
